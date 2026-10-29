@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastAPI Template</title>
+</head>
+<body>
+    <h1>List Students from table</h1>
+    <table border="1"> <!-- 加上 border 讓表格看得更清楚 -->
+		<h1>List Students from table</h1>
+    
+    <!-- 加上新增按鈕 -->
+    <p>
+        <a href="/student/add" style="padding: 5px 10px; background-color: #4CAF50; color: white; text-decoration: none;">+ 新增學生</a>
+    </p>
+
+    <table border="1">
+    <!-- 略（原本的表格內容） -->
+
+
+        <tr>
+            <td>流水號</td>
+            <td>學號</td>
+            <td>姓名</td>
+            <td>操作</td> <!-- 新增操作欄位標題 -->
+        </tr>
+        {% for p in students %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ p.stuid }}</td>
+            <td>{{ p.name }}</td>
+            <td>
+                <a href="/student/edit/{{ p.stuid }}">Edit</a> |
+                <!-- 新增 Delete 連結，並加上確認視窗 -->
+                <a href="/student/delete/{{ p.stuid }}" onclick="return confirm('確定要刪除 {{ p.name }} 嗎？');" style="color: red;">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新增學生資料</title>
+</head>
+<body>
+    <h1>新增學生資料</h1>
+    <!-- 表單使用 POST 方法，送往 /student/create -->
+    <form action="/student/create" method="post">
+        <label>學號 (stuid)：</label><br>
+        <input type="number" name="stuid" required /><br><br>
+
+        <label>姓名 (name)：</label><br>
+        <input type="text" name="name" required /><br><br>
+
+        <label>身高 (height)：</label><br>
+        <input type="number" name="height" required /><br><br>
+
+        <button type="submit">確認新增</button>
+    </form>
+    <br>
+    <a href="/students/list/template">返回學生清單</a>
+</body>
+</html>
